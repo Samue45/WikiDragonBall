@@ -44,6 +44,28 @@ app.use('/api/comments', commentsRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
 
+// Ruta de bienvenida
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: '🐉 Bienvenido a Dragon Ball Wiki API',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth (registro, login)',
+      characters: '/api/characters (personajes de Dragon Ball)',
+      favorites: '/api/favorites (favoritos del usuario)',
+      comments: '/api/comments (comentarios)',
+      users: '/api/users (datos del usuario)',
+      admin: '/api/admin (panel administrativo)',
+      health: '/api/health (estado del servidor)'
+    },
+    docs: {
+      github: 'https://github.com/usuario/dragonball-wiki',
+      documentation: 'Ver README.md en el repositorio'
+    }
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ success: true, message: 'Servidor funcionando' });
@@ -51,7 +73,12 @@ app.get('/api/health', (req, res) => {
 
 // 404
 app.use((req, res) => {
-  res.status(404).json({ success: false, message: 'Ruta no encontrada' });
+  res.status(404).json({
+    success: false,
+    message: 'Ruta no encontrada',
+    tip: 'Visita GET / para ver los endpoints disponibles',
+    baseUrl: process.env.BACKEND_URL || 'http://localhost:3000'
+  });
 });
 
 // Error handler
