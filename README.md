@@ -2,6 +2,9 @@
 
 **Aplicación web fullstack completa para explorar, comentar y gestionar personajes de Dragon Ball**
 
+## Documentación online del proyecto
+[Guía de solución de problemas y FAQ — WikiDragonBall (DeepWiki)](https://deepwiki.com/Samue45/WikiDragonBall/9-troubleshooting-and-faq)
+
 ## 📋 Resumen del Proyecto
 
 Una aplicación web moderna y completa que permite a los usuarios:
